@@ -15,7 +15,6 @@ const ContactList = () => {
                     id: doc.id,
                     ...doc.data(),
                 }));
-                // 按姓氏排序联系人
                 contactsData.sort((a, b) => a.lastName.localeCompare(b.lastName));
                 setContacts(contactsData);
             } catch (error) {
@@ -35,7 +34,7 @@ const ContactList = () => {
     return (
         <div>
             <h1>Contact List</h1>
-            <Link to="/add">
+            <Link to="/add" className="link-button">
                 <button>Add New Contact</button>
             </Link>
             <input

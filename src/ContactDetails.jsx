@@ -49,7 +49,9 @@ const ContactDetails = () => {
                 <button>Edit Contact</button>
             </Link>
             <button onClick={handleDelete}>Delete Contact</button>
-            <Link to="/">Back to Contact List</Link>
+            <Link to="/" className="link-button">
+                <button>Back to Contact List</button>
+            </Link>
         </div>
     );
 };

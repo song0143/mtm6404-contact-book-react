@@ -4,11 +4,12 @@ import ContactList from './ContactList';
 import AddContact from './AddContact';
 import ContactDetails from './ContactDetails';
 import EditContact from './EditContact';
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <div>
+      <div className="container">
         <Routes>
           <Route path="/" element={<ContactList />} />
           <Route path="/add" element={<AddContact />} />

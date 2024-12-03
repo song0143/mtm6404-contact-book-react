@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import db from './db';
 import { useNavigate } from 'react-router-dom';
+import './App.css';
 
 const AddContact = () => {
     const [firstName, setFirstName] = useState('');
@@ -12,12 +13,13 @@ const AddContact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await addDoc(collection(db, 'contacts'), {
+            const newContact = {
                 firstName,
                 lastName,
                 email,
-            });
-            navigate('/'); // 添加成功后返回联系人列表
+            };
+            const docRef = await addDoc(collection(db, 'contacts'), newContact);
+            navigate(`/contact/${docRef.id}`);
         } catch (error) {
             console.error('Error adding contact:', error);
         }
